@@ -2,14 +2,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToeGame {
-    private static Scanner scanner = new Scanner(System.in);
-    private static Random random;
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
         char[][] board = {{' ', ' ', ' '},
-                {' ', ' ', ' '},
-                {' ', ' ', ' '}};
+                          {' ', ' ', ' '},
+                          {' ', ' ', ' '}};
 
         printBoard(board);
 
@@ -32,19 +31,13 @@ public class TicTacToeGame {
 
         if (hasContestantWon(board, 'X')) {
             printBoard(board);
-            System.out.println("""
-                   *****************
-                   *** ПОБЕДА :О ***
-                   *****************""");
+            System.out.println(Utils.YOU_WON);
             return true;
         }
 
         if (hasContestantWon(board, 'O')) {
             printBoard(board);
-            System.out.println("""
-                   ********************
-                   *** ПОРАЖЕНИЕ :( ***
-                   ********************""");
+            System.out.println(Utils.YOU_LOST);
             return true;
         }
 
@@ -58,7 +51,7 @@ public class TicTacToeGame {
             }
         }
         printBoard(board);
-        System.out.println("Ничья");
+        System.out.println(Utils.DRAW);
         return true;
     }
 
@@ -66,23 +59,23 @@ public class TicTacToeGame {
 
         switch (position) {
             case 7:
-                return board[0][0] == ' ';
+                return board[0][0] == Utils.BLANK;
             case 8:
-                return board[0][1] == ' ';
+                return board[0][1] == Utils.BLANK;
             case 9:
-                return board[0][2] == ' ';
+                return board[0][2] == Utils.BLANK;
             case 4:
-                return board[1][0] == ' ';
+                return board[1][0] == Utils.BLANK;
             case 5:
-                return board[1][1] == ' ';
+                return board[1][1] == Utils.BLANK;
             case 6:
-                return board[1][2] == ' ';
+                return board[1][2] == Utils.BLANK;
             case 1:
-                return board[2][0] == ' ';
+                return board[2][0] == Utils.BLANK;
             case 2:
-                return board[2][1] == ' ';
+                return board[2][1] == Utils.BLANK;
             case 3:
-                return board[2][2] == ' ';
+                return board[2][2] == Utils.BLANK;
             default:
                 return false;
 
@@ -105,7 +98,7 @@ public class TicTacToeGame {
     }
 
     private static void computerTurn(char[][] board) {
-        random = new Random();
+        Random random = new Random();
         int computerMove;
         while (true) {
             computerMove = random.nextInt(9) + 1;
