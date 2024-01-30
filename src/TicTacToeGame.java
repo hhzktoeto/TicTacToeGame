@@ -33,18 +33,18 @@ public class TicTacToeGame {
         if (hasContestantWon(board, 'X')) {
             printBoard(board);
             System.out.println("""
-                   *************
-                   ***ПОБЕДА!***
-                   *************""");
+                   *****************
+                   *** ПОБЕДА :О ***
+                   *****************""");
             return true;
         }
 
         if (hasContestantWon(board, 'O')) {
             printBoard(board);
             System.out.println("""
-                   ******************
-                   ***проиграл лол***
-                   ******************""");
+                   ********************
+                   *** ПОРАЖЕНИЕ :( ***
+                   ********************""");
             return true;
         }
 
