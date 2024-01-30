@@ -45,7 +45,7 @@ public class TicTacToeGame {
 
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j] == ' ') {
+                if (board[i][j] == Utils.BLANK) {
                     return false;
                 }
             }
